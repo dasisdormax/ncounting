@@ -1,0 +1,15 @@
+{
+    "name": "N Counting",
+    "description": "Your self-hosted cloud accounting solution",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Maximilian Wende"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}
