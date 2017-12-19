@@ -14,7 +14,7 @@
     <category>tools</category>
     <bugs>https://github.com/dasisdormax/ncounting/issues</bugs>
     <dependencies>
-        <nextcloud min-version="12" max-version="12"/>
+        <nextcloud min-version="12" max-version="13"/>
     </dependencies>
     <navigations>
         <navigation>

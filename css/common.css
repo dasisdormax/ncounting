@@ -1,0 +1,19 @@
+#app-content-wrapper {
+	padding:12px;
+}
+#app h1 {
+	margin:20px 0;
+	font-size:1.6rem;
+}
+/*
+#app h1,
+#app h2,
+#app h3,
+#app h4,
+#app h5,
+#app h6,
+#app p {
+	width:100%;
+	display:block;
+}
+*/

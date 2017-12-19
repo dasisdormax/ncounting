@@ -1,0 +1,31 @@
+{
+  "name": "ncounting-webclient",
+  "version": "0.0.1",
+  "description": "Self-hosted cloud accounting solution for your Nextcloud",
+  "main": "src/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasisdormax/ncounting.git"
+  },
+  "author": "Maximilian Wende",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dasisdormax/ncounting/issues"
+  },
+  "homepage": "https://github.com/dasisdormax/ncounting#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.10.0"
+  }
+}

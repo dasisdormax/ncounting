@@ -1,6 +1,6 @@
 <?php
-script('ncounting', 'script');
-style('ncounting', 'style');
+script('ncounting', 'dist/bundle');
+style('ncounting', 'common');
 ?>
 
 <div id="app">
