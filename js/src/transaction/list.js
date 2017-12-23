@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TransactionListItem from './listItem.js';
+import TransactionListItem from './list_item.js';
 import TransactionDetails from './details.js';
 
 export default class TransactionList extends React.Component {
@@ -24,17 +24,21 @@ export default class TransactionList extends React.Component {
 	}
 
 	onListItemClick(id) {
-		this.setState({selectedItem: this.state.items.find((t) => t.id == id)});
+		this.setState(function(prevState) {
+			let selectedItem = this.state.items.find((t) => t.id === id);
+			if(selectedItem && typeof this.props.setSidebarContent === 'function') {
+				this.props.setSidebarContent(<TransactionDetails transaction={selectedItem} />);
+			}
+			return ({selectedItem});
+		});
 	}
 
 	render() {
-		return <div className="content">
-			<div>
-				{this.state.items.map(
-					(t) => <TransactionListItem key={t.id} transaction={t} onclick={this.onListItemClick}/>
-				)}
-			</div>
-			<TransactionDetails transaction={this.state.selectedItem} />
+		var selId = this.state.selectedItem ? this.state.selectedItem.id : null;
+		return <div>
+			{this.state.items.map(
+				(t) => <TransactionListItem key={t.id} transaction={t} onclick={this.onListItemClick} selected={t.id === selId}/>
+			)}
 		</div>;
 	}
 }

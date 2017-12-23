@@ -1,9 +1,10 @@
 const path = require("path");
 
 module.exports = {
-	entry: "./src/main.js",
+	entry: "./src/app.js",
+	devtool: "source-map",
 	output: {
-		filename: "bundle.js",
+		filename: "ncounting.js",
 		path: path.resolve(__dirname, "dist")
 	},
 	module: {

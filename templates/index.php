@@ -1,5 +1,5 @@
 <?php
-script('ncounting', 'dist/bundle');
+script('ncounting', 'dist/ncounting');
 style('ncounting', 'common');
 ?>
 
