@@ -5,7 +5,7 @@ import TransactionDetails from './details.js';
 
 export default class TransactionList extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			items: [
 				{	id: "389141aa-0822-4dc9-9a1a-1e778ff6c4cc",
@@ -21,6 +21,10 @@ export default class TransactionList extends React.Component {
 			selectedItem: null
 		};
 		this.onListItemClick = this.onListItemClick.bind(this);
+	}
+
+	componentDidMount() {
+		this.props.setBreadcrumbs([{name: "Transactions"}]);
 	}
 
 	onListItemClick(id) {
