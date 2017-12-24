@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 
 export default class Sidebar extends React.Component {
 	render() {
-		return this.props.children ? <div id="app-sidebar">{this.props.children}</div> : null;
+		if(this.props.children) {
+			return <div id="app-sidebar">
+				<div id="app-sidebar-content">{this.props.children}</div>
+				<a className="close icon-close" onClick={() => this.props.setSidebar(null)}></a>
+			</div>;
+		}
+		return null;
 	}
 }

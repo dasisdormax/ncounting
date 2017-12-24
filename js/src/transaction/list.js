@@ -26,8 +26,8 @@ export default class TransactionList extends React.Component {
 	onListItemClick(id) {
 		this.setState(function(prevState) {
 			let selectedItem = this.state.items.find((t) => t.id === id);
-			if(selectedItem && typeof this.props.setSidebarContent === 'function') {
-				this.props.setSidebarContent(<TransactionDetails transaction={selectedItem} />);
+			if(selectedItem && typeof this.props.setSidebar === 'function') {
+				this.props.setSidebar(<TransactionDetails transaction={selectedItem} />);
 			}
 			return ({selectedItem});
 		});
