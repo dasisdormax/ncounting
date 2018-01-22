@@ -21,5 +21,5 @@ The **permissions** field stores the granted permissions as characters, which ca
 - **r**eview: review accounts and transactions, mark them checked, comment on them
 - **m**odify: modify and take over transactions created by others (own transactions can always be modified)
 - **l**ock: lock/unlock transactions to prevent changes
-- **a**ccounts: manage accounts for this entiy, add predictions
+- **a**ccounts: manage accounts for this entity, add predictions
 - **o**wner: edit settings and acls for this entity (nextcloud admins will always have this permission)
