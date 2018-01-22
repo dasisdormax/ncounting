@@ -39,7 +39,7 @@ A transaction is a movement of value between accounts. It can contain 2 or more 
 
 A transaction has the following fields: id, booking\_period, name, date, created\_by, last\_edit\_by, readonly, deleted, settings (JSON: ???).
 
-A transaction part has the following fields: id, transaction\_id, date, account\_id, amount, currency, info.
+A transaction part has the following fields: id, transaction\_id, date, account\_id, amount, currency, details.
 
 This information is stored in the `ncounting_transactions` and `ncounting_transactionparts` tables. Note that to prevent floating math rounding errors, the amount is stored as BIGINT (from -2^63 to 2^63-1), which is to be interpreted with a scaling factor that depends on the currency used.
 
