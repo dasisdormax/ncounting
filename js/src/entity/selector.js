@@ -2,8 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default class EntitySelector extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			entityList: null
+		};
+	}
 	componentDidMount() {
-		setTimeout(() => this.props.setEntity({name:"myEntity"}), 2000);
+	}
+	componentWillUnmount() {
 	}
 	render() {
 		return null;

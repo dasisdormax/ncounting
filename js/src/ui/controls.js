@@ -16,7 +16,7 @@ export default class Controls extends React.Component {
 			<div className="breadcrumb">
 				<div className="crumb svg">
 					<span className="icon-home"></span>
-					<span>{this.props.entityInfo.name}</span>
+					<span>{this.props.entityData.name}</span>
 				</div>
 				<Breadcrumb data={firstBreadcrumb} />
 				{breadcrumbMenu}

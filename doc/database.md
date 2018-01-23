@@ -12,18 +12,19 @@ The table `ncounting_entities` stores entities with the following fields: id, na
 
 The table `ncounting_acls` stores permissions that users or groups have on an entity.
 
-Its field **target\_id** describes the user or group affected by the permission. A prefix of "u:" or "g:" indicates whether this permission affects a user or group. A \* can be used to grant permissions to all users.
+Its field **recipient** describes who the permission is granted to. A prefix of "u:" or "g:" indicates whether this permission affects a user or group. A \* can be used to grant permissions to all users.
 
 The **permissions** field stores the granted permissions as characters, which can be combined freely. The following permissions are defined:
 
-- **v**iew: see transactions of the current booking period
-- **p**ast: see transactions of past booking periods
-- **c**reate: create new transactions
-- **r**eview: review accounts and transactions, mark them checked, comment on them
-- **m**odify: modify and take over transactions created by others (own transactions can always be modified)
-- **l**ock: lock/unlock transactions to prevent changes
-- **a**ccounts: manage accounts for this entity, add predictions
-- **o**wner: edit settings and acls for this entity (nextcloud admins will always have this permission)
+- `v`iew: see transactions of current (not yet closed) booking periods
+- `h`istory: see transactions of all booking periods
+- `c`reate: create new transactions and modify them (until taken over)
+- `r`eview: review accounts and transactions, mark them checked, comment on them
+- `m`odify: modify and take over transactions created by others
+- `l`ock: lock/unlock transactions to prevent changes
+- `a`ccounts: manage accounts for this entity, add predictions
+- `p`rojects: create, manage and lock projects for this entity
+- `o`wner: edit settings and acls for this entity (nextcloud admins will always have this permission)
 
 
 ## Accounts
@@ -37,9 +38,9 @@ Accounts are stored in the table `ncounting_accounts`. An account has the follow
 
 A transaction is a movement of value between accounts. It can contain 2 or more transaction parts that put or pull value from accounts, whose sum must equal to zero.
 
-A transaction has the following fields: id, booking\_period, name, date, created\_by, last\_edit\_by, readonly, deleted, settings (JSON: ???).
+A transaction has the following fields: id, entity\_id, booking\_period, name, date, created\_by, last\_edit\_by, readonly, deleted, settings (JSON: ???).
 
-A transaction part has the following fields: id, transaction\_id, date, account\_id, amount, currency, details.
+A transaction part has the following fields: id, entity\_id, transaction\_id, date, account\_id, amount, currency, details.
 
 This information is stored in the `ncounting_transactions` and `ncounting_transactionparts` tables. Note that to prevent floating math rounding errors, the amount is stored as BIGINT (from -2^63 to 2^63-1), which is to be interpreted with a scaling factor that depends on the currency used.
 
@@ -55,4 +56,4 @@ A project has the following fields: id, entity\_id, name, start, end, balance\_r
 
 A portals connects a project to the 'outer world', e.g. your booking period's flow and balance accounts. Portals can be configured to route incomes and expenses through different accounts or change the routes depending on the transaction date (e.g. for projects that span multiple booking periods). Note that for booking periods, the target will be your "equity" account(s).
 
-A portal has the following fields: id, project\_id, ingoing\_account, outgoing\_account, end
+A portal has the following fields: id, entity\_id, project\_id, ingoing\_account, outgoing\_account, end

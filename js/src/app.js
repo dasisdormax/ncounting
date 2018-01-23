@@ -8,20 +8,20 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			entityInfo: null,
+			entityData: {name: "myEntity"},
 		};
 		this.setEntity = this.setEntity.bind(this);
 	}
 
-	setEntity(entityInfo) {
-		this.setState({entityInfo});
+	setEntity(entityData) {
+		this.setState({entityData});
 	}
 
 	render() {
 		return <div id="app">
-			{this.state.entityInfo == null
+			{this.state.entityData == null
 				? <EntitySelector setEntity={this.setEntity} />
-			    : <UI entityInfo={this.state.entityInfo} setEntity={this.setEntity} />}
+				: <UI entityData={this.state.entityData} setEntity={this.setEntity} />}
 		</div>;
 	}
 }

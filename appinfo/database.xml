@@ -50,7 +50,7 @@
 				<notnull>true</notnull>
 			</field>
 			<field>
-				<name>target_id</name>
+				<name>recipient</name>
 				<type>text</type>
 				<length>66</length>
 				<notnull>true</notnull>
@@ -62,13 +62,15 @@
 				<notnull>false</notnull>
 			</field>
 			<index>
-				<name>ncounting_acl_entity_and_target</name>
-				<unique>true</unique>
+				<name>ncounting_acl_entity</name>
 				<field>
 					<name>entity_id</name>
 				</field>
+			</index>
+			<index>
+				<name>ncounting_acl_recipient</name>
 				<field>
-					<name>target_id</name>
+					<name>recipient</name>
 				</field>
 			</index>
 		</declaration>
@@ -171,6 +173,13 @@
 				<primary>true</primary>
 			</field>
 			<field>
+				<name>entity_id</name>
+				<type>integer</type>
+				<length>8</length>
+				<unsigned>true</unsigned>
+				<notnull>true</notnull>
+			</field>
+			<field>
 				<name>booking_period_id</name>
 				<type>integer</type>
 				<length>8</length>
@@ -217,6 +226,12 @@
 				<type>clob</type>
 			</field>
 			<index>
+				<name>ncounting_transaction_entity</name>
+				<field>
+					<name>entity_id</name>
+				</field>
+			</index>
+			<index>
 				<name>ncounting_transaction_booking_period</name>
 				<field>
 					<name>booking_period_id</name>
@@ -256,6 +271,13 @@
 				<primary>true</primary>
 			</field>
 			<field>
+				<name>entity_id</name>
+				<type>integer</type>
+				<length>8</length>
+				<unsigned>true</unsigned>
+				<notnull>true</notnull>
+			</field>
+			<field>
 				<name>transaction_id</name>
 				<type>integer</type>
 				<length>8</length>
@@ -291,19 +313,25 @@
 				<type>clob</type>
 			</field>
 			<index>
-				<name>ncounting_transaction_part_transaction</name>
+				<name>ncounting_tp_transaction</name>
 				<field>
 					<name>transaction_id</name>
 				</field>
 			</index>
 			<index>
-				<name>ncounting_transaction_part_account</name>
+				<name>ncounting_tp_entity</name>
+				<field>
+					<name>entity_id</name>
+				</field>
+			</index>
+			<index>
+				<name>ncounting_tp_account</name>
 				<field>
 					<name>account_id</name>
 				</field>
 			</index>
 			<index>
-				<name>ncounting_transaction_part_currency</name>
+				<name>ncounting_tp_currency</name>
 				<field>
 					<name>currency</name>
 				</field>
@@ -407,6 +435,13 @@
 				<primary>true</primary>
 			</field>
 			<field>
+				<name>entity_id</name>
+				<type>integer</type>
+				<length>8</length>
+				<unsigned>true</unsigned>
+				<notnull>true</notnull>
+			</field>
+			<field>
 				<name>project_id</name>
 				<type>integer</type>
 				<length>8</length>
@@ -431,6 +466,12 @@
 				<name>end</name>
 				<type>date</type>
 			</field>
+			<index>
+				<name>ncounting_portal_entity</name>
+				<field>
+					<name>entity_id</name>
+				</field>
+			</index>
 			<index>
 				<name>ncounting_portal_project</name>
 				<field>

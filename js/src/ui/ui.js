@@ -35,10 +35,10 @@ export default class UI extends React.Component {
 	render() {
 		let has_sidebar = this.state.sidebarContent != null;
 		return <React.Fragment>
-			<Navigation entityInfo={this.props.entityInfo} />
+			<Navigation entityData={this.props.entityData} />
 			<div id="app-content" className={has_sidebar ? "with-app-sidebar" : ''}>
 				<div id="app-navigation-toggle" className="icon-menu" style={{display:"none"}}></div>
-				<Controls entityInfo={this.props.entityInfo} breadcrumbs={this.state.breadcrumbs}>{this.state.controls}</Controls>
+				<Controls entityData={this.props.entityData} breadcrumbs={this.state.breadcrumbs}>{this.state.controls}</Controls>
 				<TransactionList setSidebar={this.setSidebar} setControls={this.setControls} setBreadcrumbs={this.setBreadcrumbs}/>
 				<Sidebar setSidebar={this.setSidebar}>{this.state.sidebar}</Sidebar>
 			</div>

@@ -9,7 +9,15 @@
  */
 return [
     'routes' => [
-	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
+        ['name' => 'page#index',    'url' => '/',                   'verb' => 'GET' ],
+	['name' => 'entity#index',  'url' => '/api/v1/entity',      'verb' => 'GET' ],
+	['name' => 'entity#show',   'url' => '/api/v1/entity/{id}', 'verb' => 'GET' ],
+	['name' => 'entity#create', 'url' => '/api/v1/entity',      'verb' => 'POST'],
+	['name' => 'entity#update', 'url' => '/api/v1/entity/{id}', 'verb' => 'PUT' ],
+	['name' => 'account#index',  'url' => '/api/v1/account/{entity}',      'verb' => 'GET'    ],
+	['name' => 'account#show',   'url' => '/api/v1/account/{entity}/{id}', 'verb' => 'GET'    ],
+	['name' => 'account#create', 'url' => '/api/v1/account/{entity}',      'verb' => 'POST'   ],
+	['name' => 'account#update', 'url' => '/api/v1/account/{entity}/{id}', 'verb' => 'PUT'    ],
+	['name' => 'account#delete', 'url' => '/api/v1/account/{entity}/{id}', 'verb' => 'DELETE' ],
     ]
 ];

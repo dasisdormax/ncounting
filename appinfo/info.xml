@@ -5,7 +5,7 @@
     <name>nCounting</name>
     <summary>Your self-hosted cloud accounting solution</summary>
     <description><![CDATA[.]]></description>
-    <version>0.0.1.2</version>
+    <version>0.0.1.4</version>
     <licence>agpl</licence>
     <author mail="dasisdormax@mailbox.org" >Maximilian Wende</author>
     <namespace>NCounting</namespace>
